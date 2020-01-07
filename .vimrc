@@ -22,9 +22,9 @@ set guifont=Hack:h9
 set backspace=indent,eol,start
 
 "Making tabs behave sanely
-set tabstop=4
+set tabstop=2
 set expandtab
-set shiftwidth=4
+set shiftwidth=2
 set smarttab
 set autoindent
 set smartindent

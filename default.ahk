@@ -3,7 +3,7 @@
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
-~LWin Up:: return ; This will (hopefully) prevent the start menu from getting opened whenever this shortcut runs.
+;~LWin Up:: return ; This will (hopefully) prevent the start menu from getting opened whenever this shortcut runs.
 
 #Enter::
      if WinExist("Administrator: Windows PowerShell")
@@ -36,12 +36,15 @@ else
     RunWait PowerShell.exe -Command &{%psScript%} ,, hide
 }
 
+; Media control keys
 +ins::
     Send {Volume_Up}
 Return
-
 +del::
     Send {Volume_Down}
+Return
+#Space::
+    Send {Media_Play_Pause}
 Return
 
 ; Numpad work the same as numbers row

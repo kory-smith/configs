@@ -94,12 +94,12 @@ command Dra call s:Dra()
 
 call plug#begin('~/.vim/plugsy')
 "Plugins go here
-"Plug 'https://github.com/tpope/vim-surround' 
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'sheerun/vim-polyglot'
 Plug 'https://github.com/tpope/vim-unimpaired'
 Plug 'https://github.com/jiangmiao/auto-pairs'
 Plug 'https://github.com/tpope/vim-surround'
+Plug 'https://github.com/tpope/vim-commentary'
 
 call plug#end()
 

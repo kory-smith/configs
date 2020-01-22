@@ -58,3 +58,14 @@ Return
 #Numpad8::Send #8
 #Numpad9::Send #9
 #Numpad0::Send #0
+
+; Space-cadet-esque caps lock rebindings.
+Capslock::
+  Send {(}
+Return
+>+CapsLock::
+  Send {{}
+Return
+<+CapsLock::
+  Send {[}
+Return

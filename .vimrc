@@ -70,10 +70,10 @@ nnoremap <silent> <leader>ev :e $MYVIMRC<CR>
 nnoremap <silent> <leader>n :NERDTreeToggle<CR>
 
 "Easier split/window navigation
-nnoremap <silent> <leader>h <C-w><C-h>
-nnoremap <silent> <leader>j <C-w><C-j>
-nnoremap <silent> <leader>k <C-w><C-k>
-nnoremap <silent> <leader>l <C-w><C-l>
+nnoremap <silent> <C-h> <C-w><C-h>
+nnoremap <silent> <C-j> <C-w><C-j>
+nnoremap <silent> <C-k> <C-w><C-k>
+nnoremap <silent> <C-l> <C-w><C-l>
 
 nnoremap <silent><leader>bt :bot term<CR>
 nnoremap <silent><leader>btp :bot term powershell<CR>

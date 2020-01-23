@@ -66,6 +66,15 @@ inoremap <C-Bs> <C-W>
 nnoremap <silent> <leader>ev :e $MYVIMRC<CR>
 "nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
+"NerdTree mappings
+nnoremap <silent> <leader>n :NERDTreeToggle<CR>
+
+"Easier split/window navigation
+nnoremap <silent> <leader>h <C-w><C-h>
+nnoremap <silent> <leader>j <C-w><C-j>
+nnoremap <silent> <leader>k <C-w><C-k>
+nnoremap <silent> <leader>l <C-w><C-l>
+
 nnoremap <silent><leader>bt :bot term<CR>
 nnoremap <silent><leader>btp :bot term powershell<CR>
 
@@ -94,12 +103,13 @@ command Dra call s:Dra()
 
 call plug#begin('~/.vim/plugsy')
 "Plugins go here
+"Plug 'https://github.com/tpope/vim-surround' 
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'sheerun/vim-polyglot'
 Plug 'https://github.com/tpope/vim-unimpaired'
 Plug 'https://github.com/jiangmiao/auto-pairs'
+Plug 'scrooloose/nerdtree'
 Plug 'https://github.com/tpope/vim-surround'
-Plug 'https://github.com/tpope/vim-commentary'
 
 call plug#end()
 

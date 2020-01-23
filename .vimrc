@@ -74,6 +74,10 @@ nnoremap <silent> <C-h> <C-w><C-h>
 nnoremap <silent> <C-j> <C-w><C-j>
 nnoremap <silent> <C-k> <C-w><C-k>
 nnoremap <silent> <C-l> <C-w><C-l>
+tnoremap <C-h> <C-w><C-h>
+tnoremap <C-j> <C-w><C-j>
+tnoremap <C-k> <C-w><C-k>
+tnoremap <C-l> <C-w><C-l>
 
 nnoremap <silent><leader>bt :bot term<CR>
 nnoremap <silent><leader>btp :bot term powershell<CR>

@@ -79,6 +79,9 @@ tnoremap <C-j> <C-w><C-j>
 tnoremap <C-k> <C-w><C-k>
 tnoremap <C-l> <C-w><C-l>
 
+" Clumsy way to automatically see if my JavaScript worked
+nnoremap <silent> <leader>tt :call term_sendkeys(2, "node test.js\r")<CR>
+
 nnoremap <silent><leader>bt :bot term<CR>
 nnoremap <silent><leader>btp :bot term powershell<CR>
 

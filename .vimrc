@@ -117,8 +117,6 @@ Plug 'https://github.com/tpope/vim-unimpaired'
 Plug 'https://github.com/jiangmiao/auto-pairs'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
-Plug 'luochen1990/rainbow'
-let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
 Plug 'https://github.com/tpope/vim-surround'
 
 call plug#end()

@@ -99,7 +99,6 @@ else
     set columns=100
   endif
 endif
-
 " Dracula:
 fun! s:Dra()
     colorscheme dracula
@@ -117,6 +116,8 @@ Plug 'https://github.com/tpope/vim-unimpaired'
 Plug 'https://github.com/jiangmiao/auto-pairs'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
+Plug 'junegunn/rainbow_parentheses.vim'
+let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
 Plug 'https://github.com/tpope/vim-surround'
 
 call plug#end()
@@ -125,3 +126,5 @@ call plug#end()
 
 "Pretty colorscheme
 colorscheme dracula
+
+au VimEnter * RainbowParentheses!!

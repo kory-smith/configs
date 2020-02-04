@@ -16,7 +16,7 @@ Return
     if WinExist("ahk_exe gvim.exe")
         WinActivate, ahk_exe gvim.exe
     else
-        Run *RunAs "C:\tools\vim\vim81\gvim.exe" 
+        Run *RunAs "C:\tools\vim\vim82\gvim.exe" 
 Return
 
 psScript =
@@ -35,6 +35,13 @@ else
 {
     RunWait PowerShell.exe -Command &{%psScript%} ,, hide
 }
+
+#!d::
+    if WinExist("ahk_exe Dashlane.exe")
+        WinActivate, ahk_exe Dashlane.exe
+    else
+        Run *RunAs "C:\Users\kor54\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Dashlane.lnk" 
+Return
 
 ; Media control keys
 +ins::
@@ -68,4 +75,21 @@ Return
 Return
 <+CapsLock::
   Send {[}
+Return
+
+; Vim-esque keybindings
+#!h::
+   Send, {Left down}{Left up}
+Return
+
+#!j::
+   Send, {Down down}{Down up}
+Return
+
+#!k::
+   Send, {Up down}{Up up}
+Return
+
+#!l::
+   Send, {Right down}{Right up}
 Return

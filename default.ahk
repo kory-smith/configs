@@ -69,9 +69,19 @@ Return
 #Numpad0::Send #0
 
 ; Space-cadet-esque caps lock rebindings.
-Capslock::
-  Send {(}
-Return
+~LShift::
+	KeyWait, LShift
+	If (A_TimeSinceThisHotkey < 300 and A_PriorKey = "LShift") {
+		Send, (
+	}
+return
+
+~RShift::
+	KeyWait, RShift
+	If (A_TimeSinceThisHotkey < 300 and A_PriorKey = "RShift") {
+		Send, )
+	}
+return
 >+CapsLock::
   Send {{}
 Return

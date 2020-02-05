@@ -95,3 +95,13 @@ Return
 #!l::
    Send, {Right down}{Right up}
 Return
+
+; Sensible alt commands on my tiny home keyboard
+
+!4::
+  Send, {Alt}{F4}
+Return
+
+!5::
+  Send, {Alt}{F5}
+Return

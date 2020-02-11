@@ -1,7 +1,7 @@
 {
 	"name": "Vimium C",
-	"@time": "2/11/2020, 2:56:57 PM",
-	"time": 1581451017423,
+	"@time": "2/11/2020, 3:45:43 PM",
+	"time": 1581453943775,
 	"environment": {
 		"extension": "1.80.1",
 		"platform": "win",
@@ -13,11 +13,10 @@
 			"passKeys": ""
 		},
 		{
-			"pattern": ":https://todoist.com/*",
+			"pattern": ":https://todoist.com/",
 			"passKeys": ""
 		}
 	],
-	"filterLinkHints": true,
 	"grabBackFocus": true,
 	"keyMappings": [
 		"map gxt removeRightTab",
@@ -59,7 +58,7 @@
 		"map gx0 closeTabsOnLeft",
 		"map gx$ closeTabsOnRight",
 		"map gxx closeOtherTabs",
-		"map a Vomnibar.activateInNewTab keyword=\"Google\"",
+		"map a Vomnibar.activateInNewTab keyword=\"google\"",
 		"map c Vomnibar.activateInNewTab keyword=\"v.m\"",
 		"map Y Vomnibar.activateInNewTab keyword=\"yext\"",
 		"map A Vomnibar.activateInNewTab keyword=\"kroger\"",
@@ -72,10 +71,10 @@
 		"map gns openUrl url=\"https://search.google.com/u/1/search-console?resource_id=https://www.kroger.com/&hl=en\"",
 		""
 	],
-	"linkHintNumbers": "012345",
+	"linkHintNumbers": "12345",
 	"scrollStepSize": 50,
 	"searchEngines": [
-		"yext: https://www.yext.com/s/1029251/entities?entityGroupId=0#search=%s Yext",
+		"yext|y: https://www.yext.com/s/1029251/entities?entityGroupId=0#search=%s Yext",
 		"kroger: https://www.kroger.com/search?query=%s",
 		"bi|bing: https://www.bing.com/search?q=%s Bing",
 		"g|go|gg|google: https://www.google.com/search?q=%s Google",

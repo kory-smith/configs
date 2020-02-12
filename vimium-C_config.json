@@ -32,6 +32,8 @@
 		"map f LinkHints.activate",
 		"map sf LinkHints.activateModeToOpenInNewForegroundTab",
 		"map F LinkHints.activateModeToOpenInNewTab",
+		"map Df LinkHints.activateModeToDownloadImage",
+		"map Cf LinkHints.activateModeToCopyLinkText ",
 		"unmap m",
 		"map mf LinkHints.activateModeWithQueue",
 		"map M Marks.activateCreateMode",

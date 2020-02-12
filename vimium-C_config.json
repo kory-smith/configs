@@ -1,7 +1,7 @@
 {
 	"name": "Vimium C",
-	"@time": "2/12/2020, 9:31:26 AM",
-	"time": 1581517886522,
+	"@time": "2/12/2020, 10:31:12 AM",
+	"time": 1581521472955,
 	"environment": {
 		"extension": "1.80.1",
 		"platform": "win",
@@ -67,6 +67,7 @@
 		"",
 		"# URL Shortcuts",
 		"unmap gn",
+		"map gd openUrl url=\"chrome://downloads\"",
 		"map gnk openUrl url=\"https://www.kroger.com\"",
 		"map gny openUrl url=\"https://www.yext.com/s/1029251/entities?entityGroupId=0\"",
 		"map gnj openUrl url=\"https://jira.kroger.com/jira/secure/RapidBoard.jspa?rapidView=5354\"",

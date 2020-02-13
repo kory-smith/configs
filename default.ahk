@@ -115,3 +115,7 @@ Return
 !5::
   Send, {Alt}{F5}
 Return
+
+#!e::
+  Send, {Esc}
+Return

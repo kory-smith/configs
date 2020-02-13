@@ -1,4 +1,4 @@
-﻿if not A_IsAdmin
+if not A_IsAdmin
 Run *RunAs "%A_ScriptFullPath%"
 
 #NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
@@ -94,4 +94,8 @@ Return
 
 #!l::
    Send, {Right down}{Right up}
+Return
+
+#!e::
+  Send, {Esc}
 Return

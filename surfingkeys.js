@@ -1,11 +1,24 @@
 settings.hintAlign = "left";
+settings.scrollStepSize = 50;
 
-map('F', 'gf');
+// an example to create a new mapping `ctrl-y`
+mapkey('<Ctrl-y>', 'Show me the money', function() {
+    Front.showPopup('a well-known phrase uttered by characters in the 1996 film Jerry Maguire (Escape to close).');
+});
+
+map('sf', 'gf');
+map('F', 'af')
 map('mf', 'cf');
 map('K', 'R');
 map('J', 'E');
 map('H', 'S');
 map('L', 'D');
+
+mapkey('p', "Open the clipboard's URL in the current tab", function() {
+    Front.getContentFromClipboard(function(response) {
+        window.location.href = response.data;
+    });
+});
 
 mapkey('gxt', '#3Close tab on right', function() {
     RUNTIME("closeTabRight");})
@@ -54,6 +67,7 @@ addSearchAliasX('y', 'Yext', 'https://www.yext.com/s/1029251/entities?entityGrou
 mapkey('oy', '#8Open Search with alias y', function() {
     Front.openOmnibar({type: "SearchEngine", extra: "y"});
 });
+
 
 mapkey('ok', '#8Open Search with alias k', function() {
     Front.openOmnibar({type: "SearchEngine", extra: "k"});

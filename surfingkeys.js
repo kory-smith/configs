@@ -1,5 +1,6 @@
 settings.hintAlign = "left";
 settings.scrollStepSize = 50;
+settings.focusFirstCandidate = true;
 
 map('F', 'gf');
 map('sf', 'af')

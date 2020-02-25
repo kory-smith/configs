@@ -10,8 +10,10 @@ map('J', 'E');
 map('H', 'S');
 map('L', 'D');
 
+unmap('p');
+
 mapkey('p', "Open the clipboard's URL in the current tab", function() {
-    Front.getContentFromClipboard(function(response) {
+    Clipboard.read(function(response) {
         window.location.href = response.data;
     });
 });

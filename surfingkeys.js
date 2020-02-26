@@ -18,6 +18,10 @@ mapkey('p', "Open the clipboard's URL in the current tab", function() {
     });
 });
 
+mapkey(',', '#0enter ephemeral PassThrough mode to temporarily suppress SurfingKeys', function() {
+    Normal.passThrough(1000);
+});
+
 mapkey('gxt', '#3Close tab on right', function() {
     RUNTIME("closeTabRight");})
 

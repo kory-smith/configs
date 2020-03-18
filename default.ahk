@@ -28,7 +28,7 @@ Return
     Run *RunAs "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Visual Studio Code\Visual Studio Code.lnk"
 Return
 
-#!s::
+#!g::
 Process, exist, TorGuardDesktopQt.exe 
 NewPID = %ErrorLevel%  ; Save the value immediately since ErrorLevel is often changed.
 if NewPID = 0

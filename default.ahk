@@ -21,10 +21,12 @@ Return
         Run *RunAs "C:\tools\vim\vim82\gvim.exe" 
 Return
 
-psScript =
-    (
-        stop-process -name "TorGuardDesktopQt" -force
-    )
+#!c::
+  if WinExist("ahk_exe Code.exe")
+    WinActivate, ahk_exe Code.exe
+  else
+    Run *RunAs "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Visual Studio Code\Visual Studio Code.lnk"
+Return
 
 #!s::
 Process, exist, TorGuardDesktopQt.exe 

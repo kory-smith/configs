@@ -39,6 +39,7 @@ else
 {
     RunWait PowerShell.exe -Command &{%psScript%} ,, hide
 }
+Return
 
 #!p::
     if WinExist("ahk_exe Dashlane.exe")

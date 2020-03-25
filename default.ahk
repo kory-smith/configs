@@ -11,7 +11,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
      if WinExist("Administrator: Windows PowerShell")
         WinActivate
     else
-        Run *RunAs Powershell.exe
+        Run *RunAs "C:\Users\kor54\Shortcuts\Windows Terminal (Preview) - Shortcut.lnk"
 Return
 
 #!g::

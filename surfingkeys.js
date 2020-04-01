@@ -83,3 +83,5 @@ mapkey('ok', '#8Open Search with alias k', function() {
 
 aceVimMap('jk', '<Esc>', 'insert');
 aceVimMap('kj', '<Esc>', 'insert');
+
+unmapAllExcept(['<Ctrl-i>'], /todoist.com/)

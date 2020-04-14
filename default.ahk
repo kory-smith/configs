@@ -4,6 +4,7 @@ Run *RunAs "%A_ScriptFullPath%"
 ; #Warn  ; Enable warnings to assist with detecting common errors.
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
+SetTitleMatchMode, RegEx
 
 ;~LWin Up:: return ; This will (hopefully) prevent the start menu from getting opened whenever this shortcut runs.
 
@@ -12,6 +13,20 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
         WinActivate
     else
         Run *RunAs "C:\Users\kor54\Shortcuts\Windows Terminal (Preview) - Shortcut.lnk"
+Return
+
+#!b::
+IfWinExist, \bBrave\b
+    WinActivate
+  Else
+    Run *RunAs "C:\Users\kor54\AppData\Local\BraveSoftware\Brave-Browser\Application\brave.exe"
+Return
+
+#!t::
+  IfWinExist, \bTodoist\b
+    WinActivate
+  Else
+    Run *RunAs "C:\Users\kor54\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Brave Apps\Todoist_ To do list and task manager.lnk"
 Return
 
 #!g::
@@ -69,6 +84,7 @@ Return
 <+CapsLock::
   Send {[}
 Return
+
 ; Vim-esque keybindings
 #!h::
    Send, {Left down}{Left up}

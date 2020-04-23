@@ -29,10 +29,25 @@ Return
 Return
 
 #!b::
-  if WinExist("*Brave")
-    WinActivate, ahk_exe brave.exe
+  IfWinExist, \bBrave\b
+    WinActivate
   else
     Run *RunAs "C:\Users\KS61347\AppData\Local\BraveSoftware\Brave-Browser\Application\brave.exe" 
+Return
+
+#!t::
+  IfWinExist, \bTodoist\b
+    WinActivate
+  Else
+    Run *RunAs "C:\Users\KS61347\Shortcuts\Todoist (1).lnk"
+Return
+
+#!c::
+  if WinExist("ahk_exe Code.exe")
+    WinActivate, ahk_exe Code.exe
+  else
+    Run *RunAs "C:\Program Files\Microsoft VS Code\Code.exe"
+Return
 
 ; Media control keys
 +ins::

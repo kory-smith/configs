@@ -72,6 +72,10 @@ Return
 #Numpad9::Send #9
 #Numpad0::Send #0
 
+CapsLock::
+  Send {Esc}
+Return
+
 >+CapsLock::
   Send {{}
 Return

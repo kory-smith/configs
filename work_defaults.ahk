@@ -61,6 +61,7 @@ Return
     WinActivate, ahk_exe Teams.exe
   else
     Run *RunAs "C:\Users\KS61347\AppData\Local\Microsoft\Teams\Update.exe"
+Return
 
 ; Media control keys
 +ins::

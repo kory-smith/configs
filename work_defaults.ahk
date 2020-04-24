@@ -14,14 +14,14 @@ SetTitleMatchMode, RegEx
         Run *RunAs Powershell.exe
 Return
 
-#!g::
+#!g:: 
     if WinExist("ahk_exe gvim.exe")
         WinActivate, ahk_exe gvim.exe
     else
         Run *RunAs "C:\tools\vim\vim81\gvim.exe" 
 Return
 
-#!p::
+#!p::  ; "p" for "passwords"
     if WinExist("ahk_exe KeePass.exe")
         WinActivate, ahk_exe KeePass.exe
     else
@@ -48,6 +48,19 @@ Return
   else
     Run *RunAs "C:\Program Files\Microsoft VS Code\Code.exe"
 Return
+
+#!m::  ; "m" for "eMail"
+  if WinExist("ahk_exe OUTLOOK.EXE")
+    WinActivate, ahk_exe OUTLOOK.EXE
+  else
+    Run *RunAs "C:\Program Files (x86)\Microsoft Office\root\Office16\OUTLOOK.EXE"
+Return
+
+#!n:: ; "n" for "noisy"?
+  If WinExist("ahk_exe Teams.exe")
+    WinActivate, ahk_exe Teams.exe
+  else
+    Run *RunAs "C:\Users\KS61347\AppData\Local\Microsoft\Teams\Update.exe"
 
 ; Media control keys
 +ins::

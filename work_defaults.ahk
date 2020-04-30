@@ -14,14 +14,14 @@ SetTitleMatchMode, RegEx
         Run *RunAs Powershell.exe
 Return
 
-#!g::
+#!g:: 
     if WinExist("ahk_exe gvim.exe")
         WinActivate, ahk_exe gvim.exe
     else
         Run *RunAs "C:\tools\vim\vim81\gvim.exe" 
 Return
 
-#!p::
+#!p::  ; "p" for "passwords"
     if WinExist("ahk_exe KeePass.exe")
         WinActivate, ahk_exe KeePass.exe
     else
@@ -29,10 +29,39 @@ Return
 Return
 
 #!b::
-  if WinExist("*Brave")
-    WinActivate, ahk_exe brave.exe
+  IfWinExist, \bBrave\b
+    WinActivate
   else
     Run *RunAs "C:\Users\KS61347\AppData\Local\BraveSoftware\Brave-Browser\Application\brave.exe" 
+Return
+
+#!t::
+  IfWinExist, \bTodoist\b
+    WinActivate
+  Else
+    Run *RunAs "C:\Users\KS61347\Shortcuts\Todoist (1).lnk"
+Return
+
+#!c::
+  if WinExist("ahk_exe Code.exe")
+    WinActivate, ahk_exe Code.exe
+  else
+    Run *RunAs "C:\Program Files\Microsoft VS Code\Code.exe"
+Return
+
+#!m::  ; "m" for "eMail"
+  if WinExist("ahk_exe OUTLOOK.EXE")
+    WinActivate, ahk_exe OUTLOOK.EXE
+  else
+    Run *RunAs "C:\Program Files (x86)\Microsoft Office\root\Office16\OUTLOOK.EXE"
+Return
+
+#!n:: ; "n" for "noisy"?
+  If WinExist("ahk_exe Teams.exe")
+    WinActivate, ahk_exe Teams.exe
+  else
+    Run *RunAs "C:\Users\KS61347\AppData\Local\Microsoft\Teams\Update.exe"
+Return
 
 ; Media control keys
 +ins::
@@ -56,6 +85,10 @@ Return
 #Numpad8::Send #8
 #Numpad9::Send #9
 #Numpad0::Send #0
+
+CapsLock::
+  Send {Esc}
+Return
 
 >+CapsLock::
   Send {{}

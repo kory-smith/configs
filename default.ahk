@@ -7,7 +7,11 @@ SendMode Input  ; Recommended for new scripts due to its superior speed and reli
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 SetTitleMatchMode, RegEx
 
-;~LWin Up:: return ; This will (hopefully) prevent the start menu from getting opened whenever this shortcut runs.
+if A_IsAdmin
+  SplashTextOn, 500, 300, All Done, You may now use the computer
+  Sleep, 2000
+  SplashTextOff
+Return
 
 #Enter::
      if WinExist("Administrator: Windows PowerShell")

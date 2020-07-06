@@ -2,6 +2,10 @@ settings.hintAlign = "left";
 settings.scrollStepSize = 50;
 settings.focusFirstCandidate = true;
 iunmap(":");
+//Events.hotKey="<Meta-s>";
+
+// Preserve the "don't activate on this site" funcionality on Mac.
+map('<Ctrl-i>', '<Alt-s>');
 
 // an example to create a new mapping `ctrl-y`
 /*mapkey('<Ctrl-y>', 'Show me the money', function() {
@@ -60,7 +64,7 @@ mapkey('gnb', '#3Open YNAB in New Tab', function(){
                 {tabbed: true, active: true});
 
 mapkey('gnj', '#3Open Jira in New Tab', function(){
-    tabOpenLink("https://jira.kroger.com/jira/secure/RapidBoard.jspa?rapidView=5354")}, 
+    tabOpenLink("https://jira.kroger.com/jira/secure/RapidBoard.jspa?rapidView=7037")}, 
                 {tabbed: true, active: true});
 
 mapkey('gns', '#3Open Search Console in New Tab', function(){

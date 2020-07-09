@@ -88,7 +88,7 @@ mapkey('ok', '#8Open Search with alias k', function() {
 aceVimMap('jk', '<Esc>', 'insert');
 aceVimMap('kj', '<Esc>', 'insert');
 
-unmapAllExcept(['f', 'sf', 'F'], /reddit.com/)
+unmapAllExcept(['f', 'sf', '.'], /reddit.com/)
 
 // This lets me use the Vim editor on Todoist, but the tasks won't update with the changed text for some reason.
 //unmapAllExcept(['<Ctrl-i>'], /todoist.com/)

@@ -13,12 +13,22 @@ map('<Ctrl-i>', '<Alt-s>');
 });
 */
 
+// F will open a link in a new tab, unfocused.
 map('F', 'gf');
+
+// sf will open a link in a new tab, focused.
 map('sf', 'af');
-map('mf', 'cf');
+
+// K will move to the tab to the right
 map('K', 'R');
+
+// J will move to the tab to the left
 map('J', 'E');
+
+// H will move back one history entry
 map('H', 'S');
+
+// L will move forward one history entry
 map('L', 'D');
 
 unmap('p');

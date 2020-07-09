@@ -98,5 +98,7 @@ aceVimMap('kj', '<Esc>', 'insert');
 
 unmapAllExcept(['f', 'sf', '.'], /reddit.com/)
 
+settings.blacklistPattern = /.*mail.google.com.*|.*reddit.com*.|*.todoist.com.*/i
+
 // This lets me use the Vim editor on Todoist, but the tasks won't update with the changed text for some reason.
 //unmapAllExcept(['<Ctrl-i>'], /todoist.com/)

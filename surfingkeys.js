@@ -81,8 +81,6 @@ mapkey('gns', '#3Open Search Console in New Tab', function(){
     tabOpenLink("https://search.google.com/u/1/search-console?resource_id=https://www.kroger.com/&hl=en")}, 
                 {tabbed: true, active: true});
 
-cmap('<Ctrl-j>', '<Tab>');
-cmap('<Ctrl-k', '<Shift-Tab>');
 
 addSearchAliasX('k', 'Kroger', 'https://www.kroger.com/search?query=');
 addSearchAliasX('y', 'Yext', 'https://www.yext.com/s/1029251/entities?entityGroupId=0#search=');

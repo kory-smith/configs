@@ -99,7 +99,7 @@ aceVimMap('kj', '<Esc>', 'insert');
 unmapAllExcept(['f', 'sf', '.'], /reddit.com/)
 
 // For more information about using this blacklist, visit https://github.com/brookhong/Surfingkeys/issues/63
-settings.blacklistPattern = /.*mail.google.com.*|.*reddit.com.*|.*todoist.com.*|.*drive.google.com.*/i
+settings.blacklistPattern = /.*mail.google.com.*|.*reddit.com.*|.*todoist.com.*|.*drive.google.com.*|.*twitter.com.*/i
 
 // This lets me use the Vim editor on Todoist, but the tasks won't update with the changed text for some reason.
 //unmapAllExcept(['<Ctrl-i>'], /todoist.com/)

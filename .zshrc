@@ -107,6 +107,13 @@ bindkey -v
 # Remove mode switching delay.
 KEYTIMEOUT=5
 
+# Create temporary files on the fly and immediately open them in VSCode
+function temp {
+  touch /tmp/$1
+  echo /tmp/$1 | pbcopy
+  code /tmp/$1
+}
+
 # Change cursor shape for different vi modes.
 function zle-keymap-select {
   if [[ ${KEYMAP} == vicmd ]] ||

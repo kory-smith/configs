@@ -136,3 +136,5 @@ echo -ne '\e[5 q'
 preexec() {
    echo -ne '\e[5 q'
 }
+
+export HOMEBREW_CASK_OPTS=--no-quarantine

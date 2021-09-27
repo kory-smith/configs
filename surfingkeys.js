@@ -26,7 +26,7 @@ map('sf', 'af');
 // map('J', 'E');
 
 // H will hover over links
-map('H', '<Ctrl-H>');
+map('H', '<Ctrl-h>');
 
 // L will move forward one history entry
 // map('L', 'D');

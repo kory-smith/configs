@@ -25,8 +25,8 @@ map('sf', 'af');
 // J will move to the tab to the left
 // map('J', 'E');
 
-// H will move back one history entry
-map('H', 'S');
+// H will hover over links
+map('H', '<Ctrl-H>');
 
 // L will move forward one history entry
 // map('L', 'D');

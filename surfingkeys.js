@@ -1,3 +1,24 @@
+const {
+    aceVimMap,
+    mapkey,
+    imap,
+    imapkey,
+    getClickableElements,
+    vmapkey,
+    map,
+    unmap,
+    cmap,
+    addSearchAlias,
+    removeSearchAlias,
+    tabOpenLink,
+    readText,
+    Clipboard,
+    Front,
+    Hints,
+    Visual,
+    RUNTIME
+} = api;
+
 settings.hintAlign = "left";
 settings.scrollStepSize = 50;
 settings.focusFirstCandidate = true;

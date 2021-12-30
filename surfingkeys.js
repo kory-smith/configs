@@ -3,6 +3,7 @@ const {
     mapkey,
     imap,
     imapkey,
+    unmapAllExcept,
     getClickableElements,
     vmapkey,
     map,

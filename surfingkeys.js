@@ -2,7 +2,6 @@ const {
     aceVimMap,
     mapkey,
     imap,
-    iunmap,
     imapkey,
     getClickableElements,
     vmapkey,
@@ -23,7 +22,6 @@ const {
 settings.hintAlign = "left";
 settings.scrollStepSize = 50;
 settings.focusFirstCandidate = true;
-iunmap(":");
 //Events.hotKey="<Meta-s>";
 
 // Preserve the "don't activate on this site" funcionality on Mac.

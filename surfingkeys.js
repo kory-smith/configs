@@ -2,6 +2,7 @@ const {
     aceVimMap,
     mapkey,
     imap,
+    iunmap,
     imapkey,
     getClickableElements,
     vmapkey,

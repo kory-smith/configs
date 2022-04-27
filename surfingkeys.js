@@ -80,6 +80,12 @@ mapkey('P', '#7Open clipboard in new tab', function() {
         });
     });
 
+mapkey('yY', '#1Copy all tabs url', function() {
+    RUNTIME('getTabs', null, function (response) {
+        Clipboard.write([window.location.href].concat(response.tabs.map(tab => tab.url)).join('\n'))
+    })
+});
+
 // unmap('gn');
 
 // mapkey('gny', '#3Open Yext in New Tab', function(){

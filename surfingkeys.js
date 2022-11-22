@@ -86,40 +86,6 @@ mapkey('yY', '#1Copy all tabs url', function() {
     })
 });
 
-// unmap('gn');
-
-// mapkey('gny', '#3Open Yext in New Tab', function(){
-//     tabOpenLink("https://www.yext.com/s/1029251/entities?entityGroupId=0")}, 
-//                 {tabbed: true, active: true});
-
-// mapkey('gnk', '#3Open Kroger in New Tab', function(){
-//     tabOpenLink("https://www.kroger.com")}, 
-//                 {tabbed: true, active: true});
-
-// mapkey('gnb', '#3Open YNAB in New Tab', function(){
-//     tabOpenLink("https://app.youneedabudget.com/9becfa68-4c59-4c2f-888d-617cb9416273/budget")}, 
-//                 {tabbed: true, active: true});
-
-// mapkey('gnj', '#3Open Jira in New Tab', function(){
-//     tabOpenLink("https://jira.kroger.com/jira/secure/RapidBoard.jspa?rapidView=7037")}, 
-//                 {tabbed: true, active: true});
-
-// mapkey('gns', '#3Open Search Console in New Tab', function(){
-//     tabOpenLink("https://search.google.com/u/1/search-console?resource_id=https://www.kroger.com/&hl=en")}, 
-//                 {tabbed: true, active: true});
-
-
-// addSearchAliasX('k', 'Kroger', 'https://www.kroger.com/search?query=');
-// addSearchAliasX('y', 'Yext', 'https://www.yext.com/s/1029251/entities?entityGroupId=0#search=');
-
-// mapkey('oy', '#8Open Search with alias y', function() {
-//     Front.openOmnibar({type: "SearchEngine", extra: "y"});
-// });
-
-// mapkey('ok', '#8Open Search with alias k', function() {
-//     Front.openOmnibar({type: "SearchEngine", extra: "k"});
-// });
-
 aceVimMap('jk', '<Esc>', 'insert');
 aceVimMap('kj', '<Esc>', 'insert');
 
@@ -127,6 +93,3 @@ unmapAllExcept(['f', 'sf', '.'], /reddit.com/)
 
 // For more information about using this blacklist, visit https://github.com/brookhong/Surfingkeys/issues/63
 settings.blacklistPattern = /.*mail.google.com.*|.*reddit.com.*|.*todoist.com.*|.*drive.google.com.*|.*twitter.com.|.*github.dev.*/i
-
-// This lets me use the Vim editor on Todoist, but the tasks won't update with the changed text for some reason.
-//unmapAllExcept(['<Ctrl-i>'], /todoist.com/)

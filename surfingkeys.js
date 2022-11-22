@@ -86,6 +86,10 @@ mapkey('yY', '#1Copy all tabs url', function() {
     })
 });
 
+mapkey("q", "#7View image in new tab", function() {
+    Hints.create("img", i => tabOpenLink(i.src));
+  });
+
 aceVimMap('jk', '<Esc>', 'insert');
 aceVimMap('kj', '<Esc>', 'insert');
 

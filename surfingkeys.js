@@ -89,6 +89,22 @@ mapkey('yY', '#1Copy all tabs url', function() {
 mapkey("q", "#7View image in new tab", function() {
     Hints.create("img", i => tabOpenLink(i.src));
   });
+  
+// For annotating moves on chess.com!
+function rightClickOnNode(node) {
+  var evt = document.createEvent("MouseEvents");
+  evt.initMouseEvent("contextmenu", true, true, window,
+    0, 0, 0, 0, 0, false, false, false, false, 2, null);
+  node.dispatchEvent(evt);
+}
+mapkey("af", "#7Right click on a chess move to annotate it", function () {
+  Hints.create(
+    "#analysis-hml-scroll-container > horizontal-move-list > span",
+    function (element) {
+      rightClickOnNode(element);
+    }
+  );
+});
 
 aceVimMap('jk', '<Esc>', 'insert');
 aceVimMap('kj', '<Esc>', 'insert');

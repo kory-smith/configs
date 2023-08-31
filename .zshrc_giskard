@@ -1,3 +1,5 @@
+# THIS IS FOR GISKARD
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -68,9 +70,13 @@ ZSH_THEME="kira"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git vscode xcode vi-mode colored-man-pages zsh-autosuggestions z)
+plugins=(git vscode xcode vi-mode colored-man-pages zsh-autosuggestions z dotenv)
 
 source $ZSH/oh-my-zsh.sh
+
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 # User configuration
 
@@ -98,6 +104,24 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+hash -d gits=/Users/kory/Gits
+hash -d Gits=/Users/kory/Gits
+setopt cdablevars
+gits=/Users/kory/Gits
+Gits=/Users/kory/Gits
+
+
+
+function temp {
+  touch /tmp/$1
+  code -n /tmp/$1
+}
+
+function shrink {
+ pngpaste - | convert - -interpolate nearest -filter point -sample 40% -format jpg - | pngcopy -
+}
+
+
 # vim mode config
 # ---------------
 
@@ -106,13 +130,6 @@ bindkey -v
 
 # Remove mode switching delay.
 KEYTIMEOUT=5
-
-# Create temporary files on the fly and immediately open them in VSCode
-function temp {
-  touch /tmp/$1
-  echo /tmp/$1 | pbcopy
-  code /tmp/$1
-}
 
 # Change cursor shape for different vi modes.
 function zle-keymap-select {
@@ -137,4 +154,48 @@ preexec() {
    echo -ne '\e[5 q'
 }
 
+source ~/.iterm2_shell_integration.zsh
+
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 export HOMEBREW_CASK_OPTS=--no-quarantine
+
+eval "$(starship init zsh)"
+
+# bun completions
+[ -s "/Users/kory/.bun/_bun" ] && source "/Users/kory/.bun/_bun"
+
+# Bun
+export BUN_INSTALL="/Users/kory/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+export PATH="$PATH:/Users/kory/.bin"
+
+# alias ?? git? and gh? to github-copilot-cli
+eval "$(github-copilot-cli alias -- "$0")"
+
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+
+# Custom CD function to automatically use nvm version if .nvmrc exists
+chpwd() {
+  if [[ -f .nvmrc ]]; then
+    local nvm_version="$(<.nvmrc)"
+    local installed_version=$(nvm version $nvm_version)
+    
+    if [[ $installed_version == "N/A" ]]; then
+      echo "Node.js version specified in .nvmrc ($nvm_version) is not installed."
+      echo "Would you like to install it? [y/N]"
+      
+      read response
+      if [[ $response == "y" || $response == "Y" ]]; then
+        nvm install $nvm_version
+      else
+        echo "Skipping Node.js version switch."
+      fi
+    else
+      nvm use
+    fi
+  fi
+}

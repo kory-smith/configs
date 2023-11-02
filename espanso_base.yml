@@ -1,0 +1,91 @@
+matches:
+  - trigger: ",--"
+    replace: "—"
+
+  - trigger: ",euid"
+    replace: "KS61347"
+
+  - trigger: ",two"
+    replace: "today #Wone-offs"
+
+  - trigger: ",tpo"
+    replace: "today #🎟 Pone-offs"
+
+  - trigger: ",email"
+    replace: "kor54e@gmail.com"
+
+  - trigger: ",wo"
+    replace: "#Wone-offs"
+
+  - trigger: ",po"
+    replace: "#🎟 Pone-offs"
+
+  - trigger: ",teamemails"
+    replace: "Wires, Ryan J <ryan.wires@kroger.com>; Viets, Mary E <mary.viets2@kroger.com>; jennifer.habos@kroger.com; ivy.chen@kroger.com"
+
+  - trigger: ",wemail"
+    replace: "kory.smith@kroger.com"
+
+  - trigger: ",hnt"
+    replace: "@Header/Note *"
+
+  - trigger: ",hng"
+    replace: "@Header/Note * Goal:"
+
+  - trigger: ",phone"
+    replace: "5136083408"
+
+  - trigger: ",zip"
+    replace: "11203"
+
+  - trigger: ",oldzip"
+    replace: "45205"
+
+  - trigger: ",street"
+    replace: "84 East 52nd Street Apt 1B"
+
+  - trigger: ",oldstreet"
+    replace: "4007 Saint Lawrence Ave Apt 1"
+
+  - trigger: ",address"
+    replace: "84 East 52nd Street Apt 1B, Brooklyn, NY, 11203"
+
+  - trigger: ",oldaddress"
+    replace: "4007 Saint Lawrence Ave Apt 1 Cincinnati OH 45205"
+
+  - trigger: ",nd"
+    replace: "no date"
+  
+  - trigger: ",birthday"
+    replace: "04/03/1995"
+
+  - trigger: ",today"
+    replace: "{{mydate}}"
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%m/%d/%Y"
+  - trigger: ",journalnow"
+    replace: "{{mydate}}"
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%A, %B %d - %I:%M %p"
+  - trigger: ",tomorrow"
+    replace: "{{mytime}}"
+    vars:
+      - name: mytime
+        type: date
+        params:
+          format: "%x"
+          offset: 86400
+  - trigger: ",yesterday"
+    replace: "{{mytime}}"
+    vars:
+      - name: mytime
+        type: date
+        params:
+          format: "%x"
+          offset: -86400

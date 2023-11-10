@@ -3,34 +3,34 @@ matches:
     replace: "—"
 
   - trigger: ",euid"
-    replace: "KS61347"
+    replace: "ks61347"
 
   - trigger: ",two"
-    replace: "today #Wone-offs"
+    replace: "today #wone-offs"
 
   - trigger: ",tpo"
-    replace: "today #🎟 Pone-offs"
+    replace: "today #🎟 pone-offs"
 
   - trigger: ",email"
     replace: "kor54e@gmail.com"
 
   - trigger: ",wo"
-    replace: "#Wone-offs"
+    replace: "#wone-offs"
 
   - trigger: ",po"
-    replace: "#🎟 Pone-offs"
+    replace: "#🎟 pone-offs"
 
   - trigger: ",teamemails"
-    replace: "Wires, Ryan J <ryan.wires@kroger.com>; Viets, Mary E <mary.viets2@kroger.com>; jennifer.habos@kroger.com; ivy.chen@kroger.com"
+    replace: "wires, ryan j <ryan.wires@kroger.com>; viets, mary e <mary.viets2@kroger.com>; jennifer.habos@kroger.com; ivy.chen@kroger.com"
 
   - trigger: ",wemail"
     replace: "kory.smith@kroger.com"
 
   - trigger: ",hnt"
-    replace: "@Header/Note *"
+    replace: "@header/note *"
 
   - trigger: ",hng"
-    replace: "@Header/Note * Goal:"
+    replace: "@header/note * goal:"
 
   - trigger: ",phone"
     replace: "5136083408"
@@ -42,16 +42,16 @@ matches:
     replace: "45205"
 
   - trigger: ",street"
-    replace: "84 East 52nd Street Apt 1B"
+    replace: "84 east 52nd street apt 1b"
 
   - trigger: ",oldstreet"
-    replace: "4007 Saint Lawrence Ave Apt 1"
+    replace: "4007 saint lawrence ave apt 1"
 
   - trigger: ",address"
-    replace: "84 East 52nd Street Apt 1B, Brooklyn, NY, 11203"
+    replace: "84 east 52nd street apt 1b, brooklyn, ny, 11203"
 
   - trigger: ",oldaddress"
-    replace: "4007 Saint Lawrence Ave Apt 1 Cincinnati OH 45205"
+    replace: "4007 saint lawrence ave apt 1 cincinnati oh 45205"
 
   - trigger: ",nd"
     replace: "no date"
@@ -65,14 +65,14 @@ matches:
       - name: mydate
         type: date
         params:
-          format: "%m/%d/%Y"
+          format: "%m/%d/%y"
   - trigger: ",journalnow"
     replace: "{{mydate}}"
     vars:
       - name: mydate
         type: date
         params:
-          format: "%A, %B %d - %I:%M %p"
+          format: "%a, %b %d - %i:%m %p"
   - trigger: ",tomorrow"
     replace: "{{mytime}}"
     vars:

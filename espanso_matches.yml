@@ -56,6 +56,9 @@ matches:
   - trigger: ",oldaddress"
     replace: "4007 Saint Lawrence Ave Apt 1 Cincinnati OH 45205"
 
+  - trigger: ",businessaddress"
+    replace: "6545 Market Avenue N., Suite 100 , North Canton, Ohio 44721"
+
   - trigger: ",nd"
     replace: "no date"
   

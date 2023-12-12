@@ -53,6 +53,8 @@ map('H', '<Ctrl-h>');
 // map('L', 'D');
 
 unmap('p');
+// Remove "x" to close tab
+unmap('x');
 
 // mapkey('p', "Open the clipboard's URL in the current tab", function() {
 //     Clipboard.read(function(response) {

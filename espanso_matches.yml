@@ -34,6 +34,9 @@ matches:
 
   - trigger: ",phone"
     replace: "5136083408"
+  
+  - trigger: ",sydneyphone"
+    replace: "5134971996"
 
   - trigger: ",zip"
     replace: "11203"

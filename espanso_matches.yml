@@ -17,6 +17,15 @@ matches:
   - trigger: ",trashemail"
     replace: "korytrashmail@gmail.com"
 
+  - trigger: ",bemail"
+    replace: "kory@spook.software"
+
+  - trigger: ",jointemail"
+    replace: "sydneyandkory@gmail.com"
+
+  - trigger: ",sydneyemail"
+    replace: "vollmersydney@gmail.com"
+
   - trigger: ",wo"
     replace: "#Wone-offs"
 
@@ -59,7 +68,7 @@ matches:
   - trigger: ",oldaddress"
     replace: "4007 Saint Lawrence Ave Apt 1 Cincinnati OH 45205"
 
-  - trigger: ",businessaddress"
+  - trigger: ",baddress"
     replace: "6545 Market Avenue N., Suite 100 , North Canton, Ohio 44721"
 
   - trigger: ",nd"

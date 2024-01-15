@@ -151,9 +151,9 @@ export NVM_DIR="$HOME/.nvm"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # typing `cd gits` will take me to the gits folder no matter where I am
+setopt cdablevars
 hash -d gits=/Users/KS61347/Gits
 hash -d Gits=/Users/KS61347/Gits
-setopt cdablevars
 gits=/Users/KS61347/Gits
 Gits=/Users/KS61347/Gits
 
@@ -227,6 +227,7 @@ export BUN_INSTALL="/Users/KS61347/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 export PATH="$PATH:/Users/KS61347/.bin"
+export PATH="/Users/ks61347/.cargo/bin:$PATH"
 
 export NPM_TOKEN=REDACTED
 export YARN_NPM_AUTH_IDENT=REDACTED

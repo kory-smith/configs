@@ -1,5 +1,3 @@
-# THIS IS FOR GISKARD
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -104,23 +102,26 @@ export NVM_DIR="$HOME/.nvm"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+setopt cdablevars
+# cd-ing "Gits" takes me to gits no matter where I am
 hash -d gits=/Users/kory/Gits
 hash -d Gits=/Users/kory/Gits
-setopt cdablevars
 gits=/Users/kory/Gits
 Gits=/Users/kory/Gits
-
-
+# Same with "cd side_projects"
+hash -d side_projects=/Users/kory/side_projects
+hash -d Side_Projects=/Users/kory/Side_Projects
+side_projects=/Users/kory/Side_Projects
+Side_Projects=/Users/kory/Side_Projects
 
 function temp {
   touch /tmp/$1
   code -n /tmp/$1
 }
 
-function shrink {
- pngpaste - | convert - -interpolate nearest -filter point -sample 40% -format jpg - | pngcopy -
+function journal() {
+  bun /Users/$(whoami)/scripts/handleJournal.mjs
 }
-
 
 # vim mode config
 # ---------------
@@ -173,7 +174,7 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 export PATH="$PATH:/Users/kory/.bin"
 
-# alias ?? git? and gh? to github-copilot-cli
+alias ?? git? and gh? to github-copilot-cli
 eval "$(github-copilot-cli alias -- "$0")"
 
 if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
@@ -199,3 +200,7 @@ chpwd() {
     fi
   fi
 }
+
+# Remap L and H to beginning/end of line
+bindkey -M vicmd 'L' end-of-line
+bindkey -M vicmd 'H' beginning-of-line

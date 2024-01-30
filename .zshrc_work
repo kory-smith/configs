@@ -156,6 +156,11 @@ hash -d gits=/Users/KS61347/Gits
 hash -d Gits=/Users/KS61347/Gits
 gits=/Users/KS61347/Gits
 Gits=/Users/KS61347/Gits
+# Same with "cd side_projects"
+hash -d side_projects=/Users/KS61347/side_projects
+hash -d Side_Projects=/Users/KS61347/Side_Projects
+side_projects=/Users/KS61347/Side_Projects
+Side_Projects=/Users/KS61347/Side_Projects
 
 function temp {
 touch /tmp/$1

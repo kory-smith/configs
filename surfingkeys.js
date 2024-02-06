@@ -41,6 +41,8 @@ map('F', 'gf');
 // sf will open a link in a new tab, focused.
 map('sf', 'af');
 
+map(';u', ';U');
+
 // H will hover over links
 map('H', '<Ctrl-h>');
 

@@ -40,27 +40,13 @@ map('F', 'gf');
 // sf will open a link in a new tab, focused.
 map('sf', 'af');
 
-// K will move to the tab to the right
-// map('K', 'R');
-
-// J will move to the tab to the left
-// map('J', 'E');
-
 // H will hover over links
 map('H', '<Ctrl-h>');
-
-// L will move forward one history entry
-// map('L', 'D');
 
 unmap('p');
 // Remove "x" to close tab
 unmap('x');
 
-// mapkey('p', "Open the clipboard's URL in the current tab", function() {
-//     Clipboard.read(function(response) {
-//         window.location.href = response.data;
-//     });
-// });
 
 mapkey(',', '#0enter ephemeral PassThrough mode to temporarily suppress SurfingKeys', function() {
     Normal.passThrough(1000);
@@ -72,10 +58,6 @@ mapkey('gxt', '#3Close tab on right', function() {
 mapkey('gxT', '#3Close tab on left', function () {
     RUNTIME("closeTabLeft"); }); 
     
-// mapkey('T', 'Choose a tab with omnibar', function() {
-//     Front.openOmnibar({type: "Tabs"});
-// });    
-
 mapkey('P', '#7Open clipboard in new tab', function() {
     Clipboard.read(function(response) {
       tabOpenLink(response.data);
@@ -92,24 +74,9 @@ mapkey("q", "#7View image in new tab", function() {
     Hints.create("img", i => tabOpenLink(i.src));
   });
   
-// For annotating moves on chess.com!
-function rightClickOnNode(node) {
-  var evt = document.createEvent("MouseEvents");
-  evt.initMouseEvent("contextmenu", true, true, window,
-    0, 0, 0, 0, 0, false, false, false, false, 2, null);
-  node.dispatchEvent(evt);
-}
-mapkey("af", "#7Right click on a chess move to annotate it", function () {
-  Hints.create(
-    "#analysis-hml-scroll-container > horizontal-move-list > span",
-    function (element) {
-      rightClickOnNode(element);
-    }
-  );
-});
-
-aceVimMap('jk', '<Esc>', 'insert');
-aceVimMap('kj', '<Esc>', 'insert');
+// Map 'H' and 'L' to move to the beginning/end of lines in Ace editor
+aceVimMap('H', '0', 'normal');
+aceVimMap('L', '$', 'normal');
 
 unmapAllExcept(['f', 'sf', '.'], /reddit.com/)
 

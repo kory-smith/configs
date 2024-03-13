@@ -271,3 +271,5 @@ add-zsh-hook -Uz chpwd (){
 # Remap L and H to end of line and beginning of line
 bindkey -M vicmd 'L' end-of-line
 bindkey -M vicmd 'H' beginning-of-line
+
+eval "$(zoxide init zsh --cmd cd)"

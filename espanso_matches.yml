@@ -68,6 +68,14 @@ matches:
     replace: "4007 Saint Lawrence Ave Apt 1 Cincinnati OH 45205"
   - trigger: ",baddress"
     replace: "6545 Market Avenue N., Suite 100 , North Canton, Ohio 44721"
+  - trigger: ",newaddress"
+    replace: "4346 Ridgeview Ave, Cincinnati, OH 45238"
+  - trigger: ",newzip"
+    replace: "45238"
+  - trigger: ",newcity"
+    replace: "Cincinnati"
+  - trigger: ",newstreet"
+    replace: "4346 Ridgeview Ave"
 
   # Dates
   - trigger: ",birthday"

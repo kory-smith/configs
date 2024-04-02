@@ -3,12 +3,11 @@ import { $ } from "bun";
 // /Users/ks61347/Gits/configs/setup.ts -> /Users/ks61347/Gits/configs
 const absolutePath = import.meta.path.split("/").slice(0, -1).join("/");
 
+const user = (await $`whoami`.quiet()).text().trim();
+
 async function setupEspanso(isDryRun: boolean): Promise<void> {
   console.log("Setting up Espanso configs...");
-  const espansoConfig = await $`espanso path`.text();
-  const configDirPath = espansoConfig.split("\n")[0].split(":")[1].trim();
-
-  console.log({ configDirPath });
+  const configDirPath = `/Users/${user}/Library/Application Support/espanso`
 
   const { exitCode } = await $` find -d ${configDirPath}`.nothrow().quiet();
   const configDirExists = exitCode === 0;

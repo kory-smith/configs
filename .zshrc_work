@@ -42,7 +42,7 @@ ZSH_THEME="kira"
 
 # Uncomment the following line to automatically update without prompting.
 
-# DISABLE_UPDATE_PROMPT="true"
+DISABLE_UPDATE_PROMPT="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
 
@@ -104,7 +104,7 @@ ZSH_THEME="kira"
 
 # Add wisely, as too many plugins slow down shell startup.
 
-plugins=(git vscode xcode vi-mode colored-man-pages zsh-autosuggestions z dotenv)
+plugins=(git vscode xcode vi-mode colored-man-pages zsh-autosuggestions dotenv)
 
 source $ZSH/oh-my-zsh.sh
 

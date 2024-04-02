@@ -28,6 +28,8 @@ matches:
     replace: "@Header/Note * Goal:"
   - trigger: ",nd"
     replace: "no date"
+  - trigger: ",wf"
+    replace: "@Waiting_for"
 
   # Emails
   - trigger: ",email"

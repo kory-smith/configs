@@ -1,7 +1,6 @@
 import { $ } from "bun";
 
-// /Users/ks61347/Gits/configs/setup.ts -> /Users/ks61347/Gits/configs
-const absolutePath = import.meta.path.split("/").slice(0, -1).join("/");
+const absolutePath = await $`pwd`.text();
 
 const user = (await $`whoami`.quiet()).text().trim();
 

@@ -30,6 +30,8 @@ matches:
     replace: "no date"
   - trigger: ",wf"
     replace: "@Waiting_for"
+  - trigger: ",wwf"
+    replace: "@Waiting_for Waiting for"
 
   # Emails
   - trigger: ",email"
@@ -68,6 +70,10 @@ matches:
     replace: "Brooklyn"
   - trigger: ",oldaddress"
     replace: "84 East 52nd Street Apt 1B, Brooklyn, NY, 11203"
+  
+  # Misc
+  - trigger: ",astro"
+    replace: "http://localhost:4321/"
 
   # Dates
   - trigger: ",birthday"

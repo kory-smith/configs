@@ -9,7 +9,7 @@ matches:
   - trigger: ",local"
     replace: "https://www-local.kroger.com:4000/"
   - trigger: ",teamemails"
-    replace: "Wires, Ryan J <ryan.wires@kroger.com>; Viets, Mary E <mary.viets2@kroger.com>; jennifer.habos@kroger.com; ivy.chen@kroger.com"
+    replace: "Schwartz, Jacob R <jacob.schwartz@kroger.com>; Habos, Jennifer (NonEmp) <jennifer.habos@kroger.com>; Chen, Ivy Y <ivy.chen@kroger.com>; Miller, Seth <seth.miller@kroger.com>; Govindaraju, Usha P <usha.govindaraju2@kroger.com>; Ferman, Devyn L <devyn.ferman@kroger.com>; Paolucci, Austin T <austin.paolucci@kroger.com>; Kadam, Sampada <sampada.kadam@kroger.com>; Madapati, Veeresham (NonEmp) <veeresham.madapati@kroger.com>"
   - trigger: ",wemail"
     replace: "kory.smith@kroger.com"
 

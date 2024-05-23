@@ -238,8 +238,6 @@ export NPM_TOKEN=REDACTED
 export YARN_NPM_AUTH_IDENT=REDACTED
 export NODE_EXTRA_CA_CERTS=/Users/$(whoami)/Certs/KrogerRootCA.pem
 
-eval "$(github-copilot-cli alias -- "$0")"
-
 # Automatically use the new directory's Node version, or prompt to to install if it's missing
 autoload -U add-zsh-hook
 add-zsh-hook -Uz chpwd (){ 
@@ -273,3 +271,6 @@ bindkey -M vicmd 'L' end-of-line
 bindkey -M vicmd 'H' beginning-of-line
 
 eval "$(zoxide init zsh --cmd cd)"
+
+# Ensure that `yarn start` opens in Firefox instead of Chrome
+export BROWSER="Firefox"

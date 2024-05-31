@@ -6,7 +6,7 @@ matches:
   # Kroger-specific
   - trigger: ",euid"
     replace: "KS61347"
-  - trigger: ",local"
+  - trigger: ",krocal"
     replace: "https://www-local.kroger.com:4000/"
   - trigger: ",teamemails"
     replace: "Schwartz, Jacob R <jacob.schwartz@kroger.com>; Habos, Jennifer (NonEmp) <jennifer.habos@kroger.com>; Chen, Ivy Y <ivy.chen@kroger.com>; Miller, Seth <seth.miller@kroger.com>; Govindaraju, Usha P <usha.govindaraju2@kroger.com>; Ferman, Devyn L <devyn.ferman@kroger.com>; Paolucci, Austin T <austin.paolucci@kroger.com>; Kadam, Sampada <sampada.kadam@kroger.com>; Madapati, Veeresham (NonEmp) <veeresham.madapati@kroger.com>"
@@ -36,6 +36,8 @@ matches:
   # Emails
   - trigger: ",email"
     replace: "kor54e@gmail.com"
+  - trigger: ",oldemail"
+    replace: "kor54@live.com"
   - trigger: ",trashemail"
     replace: "korytrashmail@gmail.com"
   - trigger: ",bemail"
@@ -74,6 +76,8 @@ matches:
   # Misc
   - trigger: ",astro"
     replace: "http://localhost:4321/"
+  - trigger: ",local"
+    replace: "http://localhost:3000/"
 
   # Dates
   - trigger: ",birthday"

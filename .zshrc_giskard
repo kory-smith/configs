@@ -102,18 +102,6 @@ export NVM_DIR="$HOME/.nvm"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-setopt cdablevars
-# cd-ing "Gits" takes me to gits no matter where I am
-hash -d gits=/Users/kory/Gits
-hash -d Gits=/Users/kory/Gits
-gits=/Users/kory/Gits
-Gits=/Users/kory/Gits
-# Same with "cd side_projects"
-hash -d side_projects=/Users/kory/side_projects
-hash -d Side_Projects=/Users/kory/Side_Projects
-side_projects=/Users/kory/Side_Projects
-Side_Projects=/Users/kory/Side_Projects
-
 function temp {
   touch /tmp/$1
   code -n /tmp/$1

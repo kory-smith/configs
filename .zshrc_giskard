@@ -150,6 +150,7 @@ export NVM_DIR="$HOME/.nvm"
   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export HOMEBREW_CASK_OPTS=--no-quarantine
+export HOMEBREW_NO_AUTO_UPDATE=1
 
 eval "$(starship init zsh)"
 

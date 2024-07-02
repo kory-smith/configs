@@ -10,13 +10,13 @@ console.debug = (...input) => {
 
 const absolutePath = await $`pwd`.text();
 
-const user = (await $`whoami`.quiet()).text().trim();
+const user = os.userInfo().username;
 
 async function setupEspanso(isDryRun: boolean): Promise<void> {
   console.log("Setting up Espanso configs...");
   const configDirPath = `/Users/${user}/Library/Application Support/espanso`;
 
-  const { exitCode } = await $` find -d ${configDirPath}`.nothrow().quiet();
+  const { exitCode } = await $`find -d ${configDirPath}`.nothrow().quiet();
   const configDirExists = exitCode === 0;
 
   const matchesPath = "match/packages/base.yml";

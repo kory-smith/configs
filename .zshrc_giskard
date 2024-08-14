@@ -193,3 +193,25 @@ bindkey -M vicmd 'L' end-of-line
 bindkey -M vicmd 'H' beginning-of-line
 
 eval "$(zoxide init zsh --cmd cd)"
+
+. "$HOME/.atuin/bin/env"
+eval "$(atuin init zsh --disable-up-arrow)"
+
+redeploy-report-helper() {
+  bun build /Users/kory/Gits/broken-squares/reportOptions/additionalRoutes.ts --compile --target=bun-linux-x64-baseline --outfile=/Users/kory/Gits/broken-squares/reportOptions/reportHelper
+
+  sudo scp -i ~/.ssh/id_rsa /Users/kory/Gits/broken-squares/reportOptions/reportHelper 68.183.112.104:~/empirica/reportHelper
+
+  # SSH into the server and start the restart service
+  ssh broken-squares <<EOF
+        sudo systemctl start reportHelper.service
+        sudo systemctl status reportHelper.service
+EOF
+
+  echo "Deployment complete."
+}
+
+# Helpful git aliases
+alias gam="git add . && git commit -m"
+alias gpo="git push origin \$(git symbolic-ref --short HEAD)"
+alias ghpr="gh pr create --web"

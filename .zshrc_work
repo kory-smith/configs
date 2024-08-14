@@ -275,3 +275,14 @@ eval "$(zoxide init zsh --cmd cd)"
 
 # Ensure that `yarn start` opens in Firefox instead of Chrome
 export BROWSER="Firefox"
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/ks61347/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+
+. "$HOME/.atuin/bin/env"
+eval "$(atuin init zsh --disable-up-arrow)"
+
+# Helpful git aliases
+alias gam="git add . && git commit -m"
+alias gpo="git push origin \$(git symbolic-ref --short HEAD)"
+alias ghpr="gh pr create --web"

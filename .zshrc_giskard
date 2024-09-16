@@ -215,3 +215,9 @@ EOF
 alias gam="git add . && git commit -m"
 alias gpo="git push origin \$(git symbolic-ref --short HEAD)"
 alias ghpr="gh pr create --web"
+
+# Ctrl-X Ctrl-E to edit terminal command in $EDITOR
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '^xe' edit-command-line
+bindkey '^x^e' edit-command-line

@@ -282,6 +282,11 @@ export PATH="/Users/ks61347/.rd/bin:$PATH"
 . "$HOME/.atuin/bin/env"
 eval "$(atuin init zsh --disable-up-arrow)"
 
+function manualSync() {
+  atuin import auto
+  atuin sync
+}
+
 # Helpful git aliases
 alias gam="git add . && git commit -m"
 alias gpo="git push origin \$(git symbolic-ref --short HEAD)"

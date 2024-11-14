@@ -42,7 +42,6 @@ const keysToUnmap = [
   "S",
   "r",
   "D",
-  "s",
   "p",
   "P",
   "on",

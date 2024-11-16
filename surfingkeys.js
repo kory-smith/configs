@@ -69,6 +69,7 @@ const keysToUnmap = [
   "X",
   "ZZ",
   "ZR",
+  "b"
 ];
 keysToUnmap.forEach((key) => {
   unmap(key);

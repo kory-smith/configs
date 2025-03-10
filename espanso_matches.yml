@@ -9,7 +9,7 @@ matches:
   - trigger: ",krocal"
     replace: "https://www-local.kroger.com:4000/"
   - trigger: ",teamemails"
-    replace: "Schwartz, Jacob R <jacob.schwartz@kroger.com>; Habos, Jennifer (NonEmp) <jennifer.habos@kroger.com>; Chen, Ivy Y <ivy.chen@kroger.com>; Miller, Seth <seth.miller@kroger.com>; Govindaraju, Usha P <usha.govindaraju2@kroger.com>; Ferman, Devyn L <devyn.ferman@kroger.com>; Paolucci, Austin T <austin.paolucci@kroger.com>; Kadam, Sampada <sampada.kadam@kroger.com>; Madapati, Veeresham (NonEmp) <veeresham.madapati@kroger.com>"
+    replace: "Spann, Ashton M <ashton.spann@kroger.com>; Herron, George R <george.herron@kroger.com>; Tiemon, Liam J <liam.tiemon@kroger.com>; Cribelar, Noah T <noah.cribelar@kroger.com>; Roth, Benjamin <benjamin.roth@kroger.com>; Devi, Laxmi (NonEmp) <laxmi.devi@kroger.com>; Aguilar, Cesar (NonEmp) <cesar.aguilar@kroger.com>; Porter, Blake <blake.porter@kroger.com>; Zepeda, Raul (NonEmp) <raul.zepeda@kroger.com>; Czupik, Andrew C <andrew.czupik@kroger.com>; Monaghan, Sean (NonEmp) <sean.monaghan@kroger.com>; Cimino, Nicola J <nicola.cimino@kroger.com>; Perla, Vishruth (NonEmp) <vishruth.perla@kroger.com>; Mei, Angelina <angelina.mei@kroger.com>; Allman, Nicole <nicole.allman@kroger.com>; Kimani, Winnie <winnie.kimani@kroger.com>; Linkhart, Adam R <adam.linkhart@kroger.com>; Behling, Cassandra (NonEmp) <cassandra.behling@kroger.com>; Talerico, Jason R <jason.talerico@kroger.com>; Rakidzich, Jacob (NonEmp) <jacob.rakidzich@kroger.com>; Barry, David <david.barry@kroger.com>; Ramos, Ivan (NonEmp) <ivan.ramos@kroger.com>"
   - trigger: ",wemail"
     replace: "kory.smith@kroger.com"
 

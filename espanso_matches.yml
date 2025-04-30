@@ -88,6 +88,8 @@ matches:
     replace: "http://localhost:4321/"
   - trigger: ",local"
     replace: "http://localhost:3000/"
+  - trigger: ",notify"
+    replace: "osascript -e 'display notification \"Your task has completed!\" with title \"Script Finished\"'"
 
   # Dates
   - trigger: ",birthday"

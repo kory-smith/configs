@@ -95,7 +95,7 @@ matches:
   - trigger: ",local"
     replace: "http://localhost:3000/"
   - trigger: ",notify"
-    replace: "osascript -e 'display notification \"Your task has completed!\" with title \"Script Finished\"'"
+    replace: "osascript -e 'display notification \"Your task has completed!\" with title \"Script Finished\" with sticky'"
 
   # Dates
   - trigger: ",birthday"

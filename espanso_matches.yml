@@ -3,17 +3,8 @@ matches:
   - trigger: ",--"
     replace: "—"
 
-  # Kroger-specific
-  - trigger: ",euid"
-    replace: "KS61347"
-  - trigger: ",krocal"
-    replace: "https://www-local.kroger.com:4000/"
-  - trigger: ",teamemails"
-    replace: "Spann, Ashton M <ashton.spann@kroger.com>; Herron, George R <george.herron@kroger.com>; Tiemon, Liam J <liam.tiemon@kroger.com>; Cribelar, Noah T <noah.cribelar@kroger.com>; Roth, Benjamin <benjamin.roth@kroger.com>; Devi, Laxmi (NonEmp) <laxmi.devi@kroger.com>; Aguilar, Cesar (NonEmp) <cesar.aguilar@kroger.com>; Porter, Blake <blake.porter@kroger.com>; Zepeda, Raul (NonEmp) <raul.zepeda@kroger.com>; Czupik, Andrew C <andrew.czupik@kroger.com>; Monaghan, Sean (NonEmp) <sean.monaghan@kroger.com>; Cimino, Nicola J <nicola.cimino@kroger.com>; Mei, Angelina <angelina.mei@kroger.com>; Kimani, Winnie <winnie.kimani@kroger.com>; Linkhart, Adam R <adam.linkhart@kroger.com>; Talerico, Jason R <jason.talerico@kroger.com>; Rakidzich, Jacob (NonEmp) <jacob.rakidzich@kroger.com>; Barry, David <david.barry@kroger.com>; Ramos, Ivan (NonEmp) <ivan.ramos@kroger.com>"
   - trigger: ",wemail"
-    replace: "kory.smith@kroger.com"
-  - trigger: ",owned"
-    replace: "**/@kroger/buy/product-display-components/**,**/@kroger/buy/product-shared-components/**,**/@kroger/clickstream/analytics-config/transforms-utils/product/**,**/@kroger/clickstream/analytics-config/transforms/load-coupon/**,**/@kroger/clickstream/analytics-config/transforms/perform-better/**,**/@kroger/clickstream/analytics-config/transforms/submit-rating/**,**/@kroger/clickstream/analytics-config/transforms/view-deal/**,**/@kroger/clickstream/analytics-config/transforms/view-info/**,**/@kroger/clickstream/analytics-config/transforms/view-product/**,**/@kroger/clickstream/v0-um-transform-config/src/seamless-basket/**,**/@kroger/clickstream/v0-um-transform-config/src/seamless-product-grids/**,**/@kroger/products/**,**/@kroger/recipes/**,**/@kroger/shared/util-functions/**,**/@kroger/shopping-list/**,**/@kroger/test/playwright/src/page-objects/products/**,**/@kroger/test/playwright/src/page-objects/recipes/**,**/@kroger/test/playwright/src/page-objects/shopping-list/**"
+    replace: "kory@usetrmnl.com"
 
   # Todoist
   - trigger: ",wo"
@@ -78,6 +69,8 @@ matches:
     replace: "6545 Market Avenue N., Suite 100"
   - trigger: ",bcity"
     replace: "North Canton"
+  - trigger: ",bstate"
+    replace: "Ohio"
   - trigger: ",bzip"
     replace: "44721"
   - trigger: ",oldzip"
@@ -94,8 +87,6 @@ matches:
     replace: "http://localhost:4321/"
   - trigger: ",local"
     replace: "http://localhost:3000/"
-  - trigger: ",notify"
-    replace: "osascript -e 'display notification \"Your task has completed!\" with title \"Script Finished\" with sticky'"
 
   # Dates
   - trigger: ",birthday"

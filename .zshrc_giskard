@@ -212,6 +212,7 @@ alias gam="git add . && git commit -m"
 alias gpo="git push origin \$(git symbolic-ref --short HEAD)"
 alias ghpr="gh pr create --web"
 
+# From https://x.com/dhh/status/2005326958578856206
 # Create a new worktree and branch from within current git directory.
 unalias ga 2>/dev/null
 ga() {

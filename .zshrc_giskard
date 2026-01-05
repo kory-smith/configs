@@ -83,13 +83,6 @@ export NVM_DIR="$HOME/.nvm"
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -192,7 +185,10 @@ chpwd() {
 bindkey -M vicmd 'L' end-of-line
 bindkey -M vicmd 'H' beginning-of-line
 
-eval "$(zoxide init zsh --cmd cd)"
+if [[ "$CLAUDECODE" != "1" ]]; then
+    eval "$(zoxide init zsh --cmd cd)"
+fi
+
 
 . "$HOME/.atuin/bin/env"
 eval "$(atuin init zsh --disable-up-arrow)"
@@ -216,8 +212,48 @@ alias gam="git add . && git commit -m"
 alias gpo="git push origin \$(git symbolic-ref --short HEAD)"
 alias ghpr="gh pr create --web"
 
+# Create a new worktree and branch from within current git directory.
+unalias ga 2>/dev/null
+ga() {
+  if [[ -z "$1" ]]; then
+    echo "Usage: ga [branch name]"
+    return 1
+  fi
+  local branch="$1"
+  local base="$(basename "$PWD")"
+  local worktree_path="../${base}--${branch}"
+  git worktree add -b "$branch" "$worktree_path"
+  cd "$worktree_path"
+}
+
+# Remove worktree and branch from within active worktree directory.
+unalias gd 2>/dev/null
+gd() {
+  read "response?Remove worktree and branch? [y/N] "
+  if [[ "$response" =~ ^[Yy]$ ]]; then
+    local cwd base branch root
+    cwd="$(pwd)"
+    worktree="$(basename "$cwd")"
+    # split on first `--`
+    root="${worktree%%--*}"
+    branch="${worktree#*--}"
+    # Protect against accidentally nuking a non-worktree directory
+    if [[ "$root" != "$worktree" ]]; then
+      cd "../$root"
+      git worktree remove "$worktree" --force
+      git branch -D "$branch"
+    fi
+  fi
+}
+
 # Ctrl-X Ctrl-E to edit terminal command in $EDITOR
 autoload -U edit-command-line
 zle -N edit-command-line
 bindkey '^xe' edit-command-line
 bindkey '^x^e' edit-command-line
+
+export EDITOR="vim"
+export PATH="$HOME/.local/bin:$PATH"
+
+# Added by Antigravity
+export PATH="/Users/kory/.antigravity/antigravity/bin:$PATH"

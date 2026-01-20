@@ -222,8 +222,18 @@ ga() {
   fi
   local branch="$1"
   local base="$(basename "$PWD")"
+  local source_path="$PWD"
   local worktree_path="../${base}--${branch}"
   git worktree add -b "$branch" "$worktree_path"
+
+  # Copy gitignored credential keys if they exist
+  if [[ -d "config/credentials" ]]; then
+    for keyfile in config/credentials/*.key; do
+      [[ -f "$keyfile" ]] && cp "$keyfile" "$worktree_path/$keyfile"
+    done
+  fi
+  [[ -f "config/master.key" ]] && cp config/master.key "$worktree_path/config/"
+
   cd "$worktree_path"
 }
 
@@ -255,6 +265,3 @@ bindkey '^x^e' edit-command-line
 
 export EDITOR="vim"
 export PATH="$HOME/.local/bin:$PATH"
-
-# Added by Antigravity
-export PATH="/Users/kory/.antigravity/antigravity/bin:$PATH"

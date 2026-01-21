@@ -31,9 +31,7 @@ console.debug = (...input: unknown[]) => {
 const user = Bun.env.USER!;
 const homeDir = Bun.env.HOME!;
 const repoDir = process.cwd();
-
-const BREW_PACKAGES = ["git", "zoxide", "starship", "atuin", "pyenv"];
-const BREW_CASKS = ["espanso"];
+const brewfilePath = path.join(repoDir, "Brewfile");
 
 // Track results for summary
 const results: { step: string; status: "success" | "skipped" | "failed"; message?: string }[] = [];
@@ -166,60 +164,51 @@ async function installHomebrew(): Promise<void> {
   }
 }
 
-async function installBrewPackages(): Promise<void> {
-  logStep("Installing Brew Packages");
+async function installBrewBundle(): Promise<void> {
+  logStep("Installing Brewfile packages");
 
   if (!(await commandExists("brew"))) {
-    console.log(c.red("  Homebrew not installed, skipping packages"));
-    recordResult("Brew Packages", "failed", "Homebrew not installed");
+    console.log(c.red("  Homebrew not installed, skipping Brewfile"));
+    recordResult("Brewfile", "failed", "Homebrew not installed");
     return;
   }
 
-  // Install formula packages
-  for (const pkg of BREW_PACKAGES) {
-    try {
-      const { exitCode } = await $`brew list ${pkg}`.nothrow().quiet();
-      if (exitCode === 0) {
-        console.log(c.gray(`  ${pkg} already installed`));
-        continue;
-      }
-
-      if (isDryRun) {
-        console.log(c.yellow(`[dry-run] Would install: ${pkg}`));
-        continue;
-      }
-
-      console.log(`  Installing ${pkg}...`);
-      await $`brew install ${pkg}`;
-      console.log(c.green(`  Installed ${pkg}`));
-    } catch (err) {
-      console.log(c.red(`  Failed to install ${pkg}: ${err}`));
-    }
+  if (!(await pathExists(brewfilePath))) {
+    console.log(c.red(`  Brewfile not found at ${brewfilePath}`));
+    recordResult("Brewfile", "failed", "Brewfile not found");
+    return;
   }
 
-  // Install cask packages
-  for (const cask of BREW_CASKS) {
-    try {
-      const { exitCode } = await $`brew list --cask ${cask}`.nothrow().quiet();
-      if (exitCode === 0) {
-        console.log(c.gray(`  ${cask} (cask) already installed`));
-        continue;
-      }
-
-      if (isDryRun) {
-        console.log(c.yellow(`[dry-run] Would install cask: ${cask}`));
-        continue;
-      }
-
-      console.log(`  Installing ${cask} (cask)...`);
-      await $`brew install --cask ${cask}`;
-      console.log(c.green(`  Installed ${cask}`));
-    } catch (err) {
-      console.log(c.red(`  Failed to install ${cask}: ${err}`));
-    }
+  // Check if everything is already installed
+  const { exitCode: checkCode } = await $`brew bundle check --file=${brewfilePath}`.nothrow().quiet();
+  if (checkCode === 0) {
+    console.log(c.gray("  All Brewfile packages already installed"));
+    recordResult("Brewfile", "skipped");
+    return;
   }
 
-  recordResult("Brew Packages", "success");
+  if (isDryRun) {
+    console.log(c.yellow("[dry-run] Would run: brew bundle install"));
+    // Show what would be installed
+    const { stdout } = await $`brew bundle list --file=${brewfilePath}`.nothrow().quiet();
+    const packages = stdout.toString().trim().split("\n").slice(0, 10);
+    console.log(c.gray(`  Would install ${packages.length}+ packages including:`));
+    for (const pkg of packages) {
+      console.log(c.gray(`    • ${pkg}`));
+    }
+    recordResult("Brewfile", "skipped", "dry-run");
+    return;
+  }
+
+  try {
+    console.log("  Running brew bundle (this may take a while)...");
+    await $`brew bundle install --file=${brewfilePath} --no-lock`;
+    console.log(c.green("  Brewfile packages installed"));
+    recordResult("Brewfile", "success");
+  } catch (err) {
+    console.log(c.red(`  Failed to install Brewfile: ${err}`));
+    recordResult("Brewfile", "failed", String(err));
+  }
 }
 
 async function installOhMyZsh(): Promise<void> {
@@ -501,7 +490,7 @@ async function main() {
   // Phase 1: Install tools
   console.log(c.boldCyan("\n━━━ PHASE 1: Installing Tools ━━━"));
   await installHomebrew();
-  await installBrewPackages();
+  await installBrewBundle();
   await installOhMyZsh();
   await installZshAutosuggestions();
   await installNvm();

@@ -46,7 +46,14 @@ async function commandExists(cmd: string): Promise<boolean> {
 }
 
 async function pathExists(filepath: string): Promise<boolean> {
-  return Bun.file(filepath).exists();
+  // Bun.file().exists() only works for files, not directories
+  // Use fs.access for both
+  try {
+    await fs.access(filepath);
+    return true;
+  } catch {
+    return false;
+  }
 }
 
 async function isSymlink(filepath: string): Promise<boolean> {
@@ -321,6 +328,52 @@ async function installBun(): Promise<void> {
   }
 }
 
+async function setupKeyboard(): Promise<void> {
+  logStep("Setting up Keyboard repo (Karabiner + Hammerspoon)");
+
+  const keyboardRepo = "https://github.com/kory-smith/keyboard.git";
+  const keyboardDir = path.join(homeDir, "Gits/keyboard");
+
+  // Clone if doesn't exist
+  if (!(await pathExists(keyboardDir))) {
+    if (isDryRun) {
+      console.log(c.yellow(`[dry-run] Would clone ${keyboardRepo}`));
+      console.log(c.yellow("[dry-run] Would run: keyboard/script/setup"));
+      recordResult("Keyboard", "skipped", "dry-run");
+      return;
+    }
+
+    try {
+      console.log(`  Cloning keyboard repo...`);
+      await ensureDir(path.dirname(keyboardDir));
+      await $`git clone ${keyboardRepo} ${keyboardDir}`;
+    } catch (err) {
+      console.log(c.red(`  Failed to clone keyboard repo: ${err}`));
+      recordResult("Keyboard", "failed", String(err));
+      return;
+    }
+  } else {
+    console.log(c.gray(`  Keyboard repo already exists at ${keyboardDir}`));
+  }
+
+  // Run the keyboard setup script
+  if (isDryRun) {
+    console.log(c.yellow("[dry-run] Would run: keyboard/script/setup"));
+    recordResult("Keyboard", "skipped", "dry-run");
+    return;
+  }
+
+  try {
+    console.log("  Running keyboard setup script...");
+    await $`cd ${keyboardDir} && ./script/setup`.quiet();
+    console.log(c.green("  Keyboard setup complete"));
+    recordResult("Keyboard", "success");
+  } catch (err) {
+    console.log(c.red(`  Failed to run keyboard setup: ${err}`));
+    recordResult("Keyboard", "failed", String(err));
+  }
+}
+
 // ============================================================================
 // Config Symlink Functions
 // ============================================================================
@@ -468,11 +521,15 @@ async function printSummary() {
   console.log(`
 1. Run ${c.yellow("source ~/.zshrc")} to reload shell config
 
-2. ${c.bold("Surfingkeys")}: Copy surfingkeys.js content into browser extension settings
+2. ${c.bold("Karabiner-Elements")}: Allow input monitoring in System Settings > Privacy
 
-3. ${c.bold("Espanso")}: Grant accessibility permissions in System Preferences
+3. ${c.bold("Hammerspoon")}: Grant accessibility permissions in System Settings > Privacy
 
-4. ${c.bold("Atuin")}: Run ${c.yellow("atuin login")} to sync history
+4. ${c.bold("Espanso")}: Grant accessibility permissions in System Settings > Privacy
+
+5. ${c.bold("Surfingkeys")}: Copy surfingkeys.js content into browser extension settings
+
+6. ${c.bold("Atuin")}: Run ${c.yellow("atuin login")} to sync history
 `);
 }
 
@@ -495,6 +552,7 @@ async function main() {
   await installZshAutosuggestions();
   await installNvm();
   await installBun();
+  await setupKeyboard();
 
   // Phase 2: Symlink configs
   console.log(c.boldCyan("\n━━━ PHASE 2: Symlinking Configs ━━━"));

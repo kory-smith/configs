@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(for f in ~/.config/starship.toml ~/.config/atuin/config.toml ~/.config/ghostty/config)",
-      "Bash(do:*)"
+      "Bash(do:*)",
+      "Bash(bun setup.ts:*)"
     ]
   }
 }

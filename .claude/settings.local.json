@@ -3,7 +3,13 @@
     "allow": [
       "Bash(for f in ~/.config/starship.toml ~/.config/atuin/config.toml ~/.config/ghostty/config)",
       "Bash(do:*)",
-      "Bash(bun setup.ts:*)"
+      "Bash(bun setup.ts:*)",
+      "Bash(brew leaves:*)",
+      "Bash(brew list:*)",
+      "Bash(brew tap)",
+      "Bash(mas list:*)",
+      "Bash(brew bundle check:*)",
+      "Bash(brew bundle list:*)"
     ]
   }
 }

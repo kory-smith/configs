@@ -326,32 +326,6 @@ async function installBun(): Promise<void> {
   }
 }
 
-async function installVimPlug(): Promise<void> {
-  logStep("Installing vim-plug");
-
-  const vimPlugPath = path.join(homeDir, ".vim/autoload/plug.vim");
-  if (await pathExists(vimPlugPath)) {
-    console.log(chalk.gray("  vim-plug already installed"));
-    recordResult("vim-plug", "skipped");
-    return;
-  }
-
-  if (isDryRun) {
-    console.log(chalk.yellow("[dry-run] Would install vim-plug"));
-    recordResult("vim-plug", "skipped", "dry-run");
-    return;
-  }
-
-  try {
-    console.log("  Installing vim-plug...");
-    await $`curl -fLo ${vimPlugPath} --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`;
-    recordResult("vim-plug", "success");
-  } catch (err) {
-    console.log(chalk.red(`  Failed to install vim-plug: ${err}`));
-    recordResult("vim-plug", "failed", String(err));
-  }
-}
-
 // ============================================================================
 // Config Symlink Functions
 // ============================================================================
@@ -499,13 +473,11 @@ async function printSummary() {
   console.log(`
 1. Run ${chalk.yellow("source ~/.zshrc")} to reload shell config
 
-2. Run ${chalk.yellow(":PlugInstall")} in vim to install vim plugins
+2. ${chalk.bold("Surfingkeys")}: Copy surfingkeys.js content into browser extension settings
 
-3. ${chalk.bold("Surfingkeys")}: Copy surfingkeys.js content into browser extension settings
+3. ${chalk.bold("Espanso")}: Grant accessibility permissions in System Preferences
 
-4. ${chalk.bold("Espanso")}: Grant accessibility permissions in System Preferences
-
-5. ${chalk.bold("Atuin")}: Run ${chalk.yellow("atuin login")} to sync history
+4. ${chalk.bold("Atuin")}: Run ${chalk.yellow("atuin login")} to sync history
 `);
 }
 
@@ -528,7 +500,6 @@ async function main() {
   await installZshAutosuggestions();
   await installNvm();
   await installBun();
-  await installVimPlug();
 
   // Phase 2: Symlink configs
   console.log(chalk.bold.cyan("\n━━━ PHASE 2: Symlinking Configs ━━━"));

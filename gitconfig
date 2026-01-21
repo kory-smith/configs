@@ -1,0 +1,17 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+	name = Kory Smith
+	email = kor54e@gmail.com
+	signingkey = /Users/kory/.ssh/id_ed25519.pub
+
+[core]
+	excludesfile = /Users/kory/.gitignore
+[pull]
+	rebase = false
+[init]
+	defaultBranch = main
+[push]
+	autoSetupRemote = true
+[gpg]
+	format = ssh

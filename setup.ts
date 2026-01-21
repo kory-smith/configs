@@ -479,6 +479,23 @@ async function setupEspanso(): Promise<void> {
   }
 }
 
+async function setupGit(): Promise<void> {
+  logStep("Setting up Git config");
+
+  try {
+    const gitconfigDest = path.join(homeDir, ".gitconfig");
+    await createSymlink("gitconfig", gitconfigDest);
+
+    const gitignoreDest = path.join(homeDir, ".gitignore");
+    await createSymlink("gitignore_global", gitignoreDest);
+
+    recordResult("Git Config", "success");
+  } catch (err) {
+    console.log(c.red(`  Failed to setup Git config: ${err}`));
+    recordResult("Git Config", "failed", String(err));
+  }
+}
+
 // ============================================================================
 // Main
 // ============================================================================
@@ -521,15 +538,24 @@ async function printSummary() {
   console.log(`
 1. Run ${c.yellow("source ~/.zshrc")} to reload shell config
 
-2. ${c.bold("Karabiner-Elements")}: Allow input monitoring in System Settings > Privacy
+2. ${c.bold("SSH Keys")}: Generate if needed:
+   ${c.yellow("ssh-keygen -t ed25519 -C \"your_email@example.com\"")}
+   Then add to GitHub: ${c.gray("https://github.com/settings/keys")}
 
-3. ${c.bold("Hammerspoon")}: Grant accessibility permissions in System Settings > Privacy
+3. ${c.bold("DisplayLink")}: Download and install from:
+   ${c.gray("https://www.synaptics.com/products/displaylink-graphics/downloads")}
 
-4. ${c.bold("Espanso")}: Grant accessibility permissions in System Settings > Privacy
+4. ${c.bold("Karabiner-Elements")}: Allow input monitoring in System Settings > Privacy
 
-5. ${c.bold("Surfingkeys")}: Copy surfingkeys.js content into browser extension settings
+5. ${c.bold("Hammerspoon")}: Grant accessibility permissions in System Settings > Privacy
 
-6. ${c.bold("Atuin")}: Run ${c.yellow("atuin login")} to sync history
+6. ${c.bold("Espanso")}: Grant accessibility permissions in System Settings > Privacy
+
+7. ${c.bold("Surfingkeys")}: Copy surfingkeys.js content into browser extension settings
+
+8. ${c.bold("Atuin")}: Run ${c.yellow("atuin login")} to sync history
+
+9. ${c.bold("GitHub CLI")}: Run ${c.yellow("gh auth login")} to authenticate
 `);
 }
 
@@ -556,6 +582,7 @@ async function main() {
 
   // Phase 2: Symlink configs
   console.log(c.boldCyan("\n━━━ PHASE 2: Symlinking Configs ━━━"));
+  await setupGit();
   await setupZsh();
   await setupVim();
   await setupStarship();

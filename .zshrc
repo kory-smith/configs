@@ -10,6 +10,53 @@ export ZSH="/Users/kory/.oh-my-zsh"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="kira"
 
+source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+ZVM_SYSTEM_CLIPBOARD_ENABLED=true
+
+# Cutlass: delete/change without yanking (preserves CUTBUFFER)
+function cutlass_delete() {
+  local save=$CUTBUFFER
+  zle vi-delete
+  CUTBUFFER=$save
+}
+function cutlass_change() {
+  local save=$CUTBUFFER
+  zle vi-change
+  CUTBUFFER=$save
+}
+function cutlass_delete_char() {
+  local save=$CUTBUFFER
+  zle vi-delete-char
+  CUTBUFFER=$save
+}
+function cutlass_kill_eol() {
+  local save=$CUTBUFFER
+  zle vi-kill-eol
+  CUTBUFFER=$save
+}
+
+function zvm_after_lazy_keybindings() {
+  # H/L: beginning/end of line
+  zvm_bindkey vicmd 'H' beginning-of-line
+  zvm_bindkey vicmd 'L' end-of-line
+  zvm_bindkey visual 'H' beginning-of-line
+  zvm_bindkey visual 'L' end-of-line
+
+  # Cutlass: d/c/x delete without yanking
+  zvm_define_widget cutlass_delete
+  zvm_define_widget cutlass_change
+  zvm_define_widget cutlass_delete_char
+  zvm_define_widget cutlass_kill_eol
+  zvm_bindkey vicmd 'd' cutlass_delete
+  zvm_bindkey vicmd 'c' cutlass_change
+  zvm_bindkey vicmd 'x' cutlass_delete_char
+  zvm_bindkey vicmd 'D' cutlass_kill_eol
+  zvm_bindkey visual 'd' cutlass_delete
+  zvm_bindkey visual 'c' cutlass_change
+  zvm_bindkey visual 'x' cutlass_delete_char
+
+}
+
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -68,7 +115,7 @@ ZSH_THEME="kira"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git vscode xcode vi-mode colored-man-pages zsh-autosuggestions dotenv)
+plugins=(git vscode xcode zsh-autosuggestions dotenv)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -112,31 +159,6 @@ bindkey -v
 
 # Remove mode switching delay.
 KEYTIMEOUT=5
-
-# Change cursor shape for different vi modes.
-function zle-keymap-select {
-  if [[ ${KEYMAP} == vicmd ]] ||
-     [[ $1 = 'block' ]]; then
-    echo -ne '\e[1 q'
-
-  elif [[ ${KEYMAP} == main ]] ||
-       [[ ${KEYMAP} == viins ]] ||
-       [[ ${KEYMAP} = '' ]] ||
-       [[ $1 = 'beam' ]]; then
-    echo -ne '\e[5 q'
-  fi
-}
-zle -N zle-keymap-select
-
-# Use beam shape cursor on startup.
-echo -ne '\e[5 q'
-
-# Use beam shape cursor for each new prompt.
-preexec() {
-   echo -ne '\e[5 q'
-}
-
-source ~/.iterm2_shell_integration.zsh
 
 export NVM_DIR="$HOME/.nvm"
   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm

@@ -203,10 +203,6 @@ chpwd() {
   fi
 }
 
-# Remap L and H to beginning/end of line
-bindkey -M vicmd 'L' end-of-line
-bindkey -M vicmd 'H' beginning-of-line
-
 if [[ "$CLAUDECODE" != "1" ]]; then
     eval "$(zoxide init zsh --cmd cd)"
 fi
@@ -215,24 +211,28 @@ fi
 . "$HOME/.atuin/bin/env"
 eval "$(atuin init zsh --disable-up-arrow)"
 
-redeploy-report-helper() {
-  bun build /Users/kory/Gits/broken-squares/reportOptions/additionalRoutes.ts --compile --target=bun-linux-x64-baseline --outfile=/Users/kory/Gits/broken-squares/reportOptions/reportHelper
+# Yeet - stage, review, commit, push
+yeet() {
+  if [[ -z "$1" ]]; then
+    echo "Usage: yeet \"commit message\""
+    return 1
+  fi
 
-  sudo scp -i ~/.ssh/id_rsa /Users/kory/Gits/broken-squares/reportOptions/reportHelper 68.183.112.104:~/empirica/reportHelper
+  local msg="$*"
 
-  # SSH into the server and start the restart service
-  ssh broken-squares <<EOF
-        sudo systemctl start reportHelper.service
-        sudo systemctl status reportHelper.service
-EOF
+  git add -A
 
-  echo "Deployment complete."
+  echo "\n📦 Staged changes:"
+  git diff --cached --stat
+  echo "\n"
+  git diff --cached --shortstat
+
+  echo "\nCommit message: \"$msg\""
+  echo "Press Enter to yeet, Ctrl+C to abort..."
+  read
+
+  git commit -m "$msg" && git push
 }
-
-# Helpful git aliases
-alias gam="git add . && git commit -m"
-alias gpo="git push origin \$(git symbolic-ref --short HEAD)"
-alias ghpr="gh pr create --web"
 
 # From https://x.com/dhh/status/2005326958578856206
 # Create a new worktree and branch from within current git directory.
@@ -255,6 +255,9 @@ ga() {
     done
   fi
   [[ -f "config/master.key" ]] && cp config/master.key "$worktree_path/config/"
+
+  # Symlink ActiveStorage files so worktree shares blobs with source
+  [[ -d "storage" ]] && ln -s "$source_path/storage" "$worktree_path/storage"
 
   cd "$worktree_path"
 }

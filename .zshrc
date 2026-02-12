@@ -223,13 +223,12 @@ yeet() {
   git add -A
 
   echo "\n📦 Staged changes:"
-  git diff --cached --stat
+  git --no-pager diff --cached --stat
   echo "\n"
-  git diff --cached --shortstat
+  git --no-pager diff --cached --shortstat
 
   echo "\nCommit message: \"$msg\""
-  echo "Press Enter to yeet, Ctrl+C to abort..."
-  read
+  read -k 1 "?Press Enter to yeet, Ctrl+C to abort... "
 
   git commit -m "$msg" && git push
 }
@@ -287,6 +286,13 @@ autoload -U edit-command-line
 zle -N edit-command-line
 bindkey '^xe' edit-command-line
 bindkey '^x^e' edit-command-line
+
+# Helpful git aliases
+alias gpo="git push origin \$(git symbolic-ref --short HEAD)"
+alias ghpr="gh pr create --web"
+
+alias dotfiles="code ~/Gits/configs"
+alias clauded="claude --dangerously-skip-permissions"
 
 export EDITOR="vim"
 export PATH="$HOME/.local/bin:$PATH"

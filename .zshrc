@@ -295,6 +295,9 @@ alias dotfiles="code ~/Gits/configs"
 
 clauded() { claude --dangerously-skip-permissions "$@"; }
 
+# Start remote control mode and don't let mac sleep (but display can sleep)
+clauder() { caffeinate -i claude rc --dangerously-skip-permissions; }
+
 # Ralph Loop — autonomous AI coding agent
 ralph() { ~/ralph.sh --dir "$(pwd)" "$@"; }
 

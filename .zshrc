@@ -292,7 +292,11 @@ alias gpo="git push origin \$(git symbolic-ref --short HEAD)"
 alias ghpr="gh pr create --web"
 
 alias dotfiles="code ~/Gits/configs"
-alias clauded="claude --dangerously-skip-permissions"
+
+clauded() { claude --dangerously-skip-permissions "$@"; }
+
+# Ralph Loop — autonomous AI coding agent
+ralph() { ~/ralph.sh --dir "$(pwd)" "$@"; }
 
 export EDITOR="vim"
 export PATH="$HOME/.local/bin:$PATH"

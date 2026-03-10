@@ -258,6 +258,9 @@ ga() {
   # Symlink ActiveStorage files so worktree shares blobs with source
   [[ -d "storage" ]] && ln -s "$source_path/storage" "$worktree_path/storage"
 
+  # Copy dev secret so worktree shares session cookies with source. Prevents needing to login every time I run ga then bin/dev
+  [[ -f "tmp/local_secret.txt" ]] && mkdir -p "$worktree_path/tmp" && cp tmp/local_secret.txt "$worktree_path/tmp/"
+
   cd "$worktree_path"
 }
 

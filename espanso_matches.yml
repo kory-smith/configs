@@ -3,8 +3,13 @@ matches:
   - trigger: ",--"
     replace: "—"
 
-  - trigger: ",wemail"
-    replace: "kory@usetrmnl.com"
+  # Container Traffic Control query params
+  - trigger: ",ks"
+    replace: "kontainer=spook"
+  - trigger: ",kt"
+    replace: "kontainer=trmnl"
+  - trigger: ",kf"
+    replace: "kontainer=fera"
 
   # Todoist
   - trigger: ",wo"
@@ -47,6 +52,11 @@ matches:
     replace: "sydneyandkory@gmail.com"
   - trigger: ",sydneyemail"
     replace: "vollmersydney@gmail.com"
+
+  - trigger: ",wemail"
+    replace: "kory@usetrmnl.com"
+  - trigger: ",femail"
+    replace: "kory@fera.ai"
 
   # Phone numbers
   - trigger: ",phone"

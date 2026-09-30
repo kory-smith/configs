@@ -75,6 +75,11 @@ keysToUnmap.forEach((key) => {
   unmap(key);
 });
 
+// Let Intercom handle these keys without Surfingkeys interference.
+["n", "z", "N", "Z"].forEach((key) => {
+  unmap(key, /^https:\/\/app\.intercom\.com(?:[/:]|$)/i);
+});
+
 mapkey(
   ",",
   "#0enter ephemeral PassThrough mode to temporarily suppress SurfingKeys",

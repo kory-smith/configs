@@ -117,6 +117,7 @@ function zvm_after_lazy_keybindings() {
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git vscode xcode zsh-autosuggestions dotenv)
 
+ZSH_DOTENV_PROMPT=false
 source $ZSH/oh-my-zsh.sh
 
 export NVM_DIR="$HOME/.nvm"
